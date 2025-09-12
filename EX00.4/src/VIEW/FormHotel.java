@@ -7,6 +7,7 @@ package VIEW;
 
 import DAO.HotelDAO;
 import DTO.HotelDTO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,6 +60,11 @@ public class FormHotel extends javax.swing.JFrame {
         });
 
         btnListar.setText("Listar por Data");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,8 +128,28 @@ public class FormHotel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-HotelDTO h1 = new HotelDTO(txtNQuarto, PROPERTIES, ALLBITS, ABORT)
+        HotelDTO h1 = new HotelDTO(txtCliente.getText(), Integer.parseInt(txtDentrada.getText()), Integer.parseInt(txtDSaida.getText()),
+                Integer.parseInt(txtNQuarto.getText()));
+
+        if (h1.getCliente().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    "Insira o nome.",
+                    "Erro",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        h2.adcHotel(h1);
+        System.out.println("Reserva feita com sucesso.");
+
+     
+
+
     }//GEN-LAST:event_btnAddActionPerformed
+    HotelDAO h2 = new HotelDAO();
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        h2.listarHotel();
+    }//GEN-LAST:event_btnListarActionPerformed
 
     /**
      * @param args the command line arguments

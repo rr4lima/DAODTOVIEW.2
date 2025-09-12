@@ -1,23 +1,24 @@
-
 package DTO;
 
 public class HotelDTO {
-    private String nome;
-    private int dataEntrada, dataSaida, nQuarto;
+    private String cliente;
+    private int dataEntrada;
+    private int dataSaida;
+    private int nQuarto;
 
-    public HotelDTO(String nome, int dataEntrada, int dataSaida, int nQuarto) {
-        this.nome = nome;
+    public HotelDTO(String cliente, int dataEntrada, int dataSaida, int nQuarto) {
+        this.cliente = cliente;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.nQuarto = nQuarto;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public int getDataEntrada() {
@@ -46,8 +47,8 @@ public class HotelDTO {
 
     @Override
     public String toString() {
-        return "HotelDTO{" + "nome=" + nome + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", nQuarto=" + nQuarto + '}';
+        return "HotelDTO{" + "cliente=" + cliente + ", dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", nQuarto=" + nQuarto + '}';
     }
-    
-    
+
+
 }
